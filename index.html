@@ -3,36 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To My Favorite Girl ❤️</title>
+    <title>A Little Surprise for Bae</title>
     <style>
-        body { background: #0a0a0a; color: #ff4d6d; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; text-align: center; }
-        #container { border: 2px solid #ff4d6d; padding: 50px; border-radius: 20px; box-shadow: 0 0 50px rgba(255, 77, 109, 0.4); background: rgba(255, 77, 109, 0.02); max-width: 80%; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; }
-        .puns { color: #00f2fe; font-family: 'Courier New', monospace; font-size: 0.9em; margin-bottom: 30px; }
-        .message { font-size: 1.3em; line-height: 1.6; color: #fff; }
-        .nicknames { color: #ff4d6d; font-weight: bold; font-style: italic; }
-        .heart { font-size: 60px; cursor: pointer; transition: 0.3s; margin-top: 20px; display: inline-block; }
-        .heart:hover { transform: scale(1.3); }
-        .footer { margin-top: 30px; font-size: 0.7em; color: #555; }
+        body { background: #fff5f5; font-family: 'Georgia', serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; color: #4a4a4a; }
+        #game-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; max-width: 400px; width: 90%; }
+        button { background: #ffb7b7; border: none; padding: 10px 20px; border-radius: 25px; color: white; font-size: 1em; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+        button:hover { background: #ff8b8b; transform: translateY(-2px); }
+        .hidden { display: none; }
+        .fade-in { animation: fadeIn 1s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .nickname { color: #ff8b8b; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div id="container">
-        <h1>HEY BABE ❤️</h1>
-        <div class="puns">> Accessing_Heart_Database... [SUCCESS]</div>
-        
-        <div class="message">
-            Sorry for the late Valentine, but your <span class="nicknames">Top</span> is here now. <br>
-            To my <span class="nicknames">cục cưng, bé lùn, my little bottom, sugar plum, my clumsy nerd...</span> <br><br>
-            You might be far away in the US, but remember: <br>
-            <span style="text-decoration: underline;">You're mine. Every single bit of you.</span> <br>
-            No matter how much you know about IT, <br>
-            I'm the only one who can "debug" your heart. 😉
+
+    <div id="game-box">
+        <!-- Level 1 -->
+        <div id="step1" class="fade-in">
+            <h2>Hii <span class="nickname">Sweetheart</span>! ❤️</h2>
+            <p>I know I'm a bit late for Valentine's, but I have a small challenge for you.</p>
+            <p>Are you ready to receive your gift?</p>
+            <button onclick="nextStep(2)">Yes, I am!</button>
         </div>
 
-        <div class="heart" onclick="alert('I love you so much, my little girl! Now go to sleep and dream about me.')">❤️</div>
-        
-        <div class="footer">Status: Owned by Your Favorite Top | Late Valentine 2024</div>
+        <!-- Level 2 -->
+        <div id="step2" class="hidden">
+            <h2>Quick Question...</h2>
+            <p>Who is the luckiest girl in the world to have me? 😉</p>
+            <button onclick="nextStep(3)">Definitely ME!</button>
+        </div>
+
+        <!-- Level 3 (Final) -->
+        <div id="step3" class="hidden">
+            <h2>Correct, <span class="nickname">Darling</span>!</h2>
+            <p>To my <span class="nickname">Baby, Bae, My Sweetie</span>...</p>
+            <p>You’re the best "teacher" I’ve ever had. Distance means nothing when you mean everything to me.</p>
+            <p>Happy Late Valentine! I miss you so much in the US. 🇺🇸✈️🇻🇳</p>
+            <div style="font-size: 40px; margin-top: 15px;">🌹</div>
+        </div>
     </div>
+
+    <script>
+        function nextStep(step) {
+            // Ẩn tất cả các bước
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.add('hidden');
+            
+            // Hiện bước tiếp theo
+            const next = document.getElementById('step' + step);
+            next.classList.remove('hidden');
+            next.classList.add('fade-in');
+        }
+    </script>
 </body>
 </html>
